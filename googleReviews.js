@@ -163,17 +163,3 @@ $(document).ready(function( $ ) {
         max_rows:7
     });
 });
-
-setTimeout(function(){
-    $('#google-reviews .review-item-wrapper').slick({
-        mobileFirst: true,
-        variableWidth:false,
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 2000,
-        prevArrow:'<i class="slider-prev fa fa-chevron-left">Previous</i>',
-        nextArrow:' <i class="slider-next fa fa-chevron-right">Next</i>',
-    });
-
-},1000);

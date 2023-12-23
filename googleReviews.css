@@ -82,8 +82,7 @@
 }
 
 .slick-slider{
-    max-width: 1250px !important;
-    margin: 0 auto;
+    width: 100%;
 }
 .slick-arrow{
     display: flex;
@@ -91,7 +90,7 @@
 }
 
 .review-item-wrapper{
-    display: flex;
+    display: flex !important;
     justify-content: center;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
 }
