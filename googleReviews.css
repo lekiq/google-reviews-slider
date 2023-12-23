@@ -39,7 +39,7 @@
     text-align: center;
     padding: 40px !important;
     width: auto;
-    height: auto;
+    height: auto!important;
     display: flex;
     flex-direction: column;
 }
