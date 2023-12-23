@@ -4,14 +4,18 @@
 
         var defaults = {
             placeId: 'ChIJERONVFK22YgRnhdwEhEDjrc' // placeId provided by google api documentation
-            , render: ['reviews'], min_rating: 5, max_rows: 6, rotateTime: false
+            , render: ['reviews']
+            , min_rating: 5
+            , max_rows: 6
+            , rotateTime: false
         };
 
         var plugin = this;
 
         plugin.settings = {}
 
-        var $element = $(element), element = element;
+        var $element = $(element),
+            element = element;
 
         plugin.init = function () {
             plugin.settings = $.extend({}, defaults, options);
@@ -46,7 +50,8 @@
 
         var sort_by_date = function (ray) {
             ray.sort(function (a, b) {
-                var keyA = new Date(a.time), keyB = new Date(b.time);
+                var keyA = new Date(a.time),
+                    keyB = new Date(b.time);
                 // Compare the 2 dates
                 if (keyA < keyB) return -1;
                 if (keyA > keyB) return 1;
@@ -78,12 +83,16 @@
                 date = date[1] + '.' + date[0] + '.' + date[2];
                 html = html + "<div class='review-item glide__slide'><div class='review-meta'><span class='review-img'><img src='" + reviews[i].profile_photo_url + "'></span> <span class='review-author'>" + reviews[i].author_name + "</span><span class='review-date'>" + date + "</span></div>" + stars + "<p class='review-text'>" + truncate(reviews[i].text) + "</p></div>"
             }
-            ;$element.append(html);
-            html = html + "  <div class=\"glide__arrows\" data-glide-el=\"controls\">\n" + "    <button class=\"glide__arrow glide__arrow--left\" data-glide-dir=\"<\">prev</button>\n" + "    <button class=\"glide__arrow glide__arrow--right\" data-glide-dir=\">\">next</button>\n" + "  </div>\n</div></div>";
+            ;
+            $element.append(html);
+            html = html + "</div></div>";
         }
 
         function truncate(string) {
-            if (string.length > 189) return string.substring(0, 189) + '...'; else return string;
+            if (string.length > 189)
+                return string.substring(0, 189) + '...';
+            else
+                return string;
         };
 
         var initRotation = function () {
@@ -146,8 +155,11 @@
 
 })(jQuery);
 
-$(document).ready(function ($) {
+$(document).ready(function( $ ) {
     $("#google-reviews").googlePlaces({
-        placeId: 'ChIJidEIrxGobUcRweVFN_jGgtA', render: ['reviews'], min_rating: 4, max_rows: 7
+        placeId: 'ChIJidEIrxGobUcRweVFN_jGgtA',
+        render: ['reviews'],
+        min_rating: 4,
+        max_rows:7
     });
 });
