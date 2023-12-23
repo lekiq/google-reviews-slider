@@ -173,8 +173,9 @@ $(document).ready(function( $ ) {
 setTimeout(function(){
     var glide = new Glide('.glide', {
         type: 'carousel',
-        perView: 3,
+        perView: 4,
         focusAt: 'center',
+        autoplay: 3000,
         breakpoints: {
             800: {
                 perView: 2
