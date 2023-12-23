@@ -49,6 +49,8 @@
     width: auto;
     height: auto;
     max-width: 300px;
+    display: flex;
+    flex-direction: column;
 }
 .review-item .review-img{
     display: block;
@@ -69,7 +71,8 @@
 }
 
 .review-text{
-    font-size: 16PX;
+    font-size: 16px;
+    white-space: normal;
 }
 
 .review-stars ul li i{
