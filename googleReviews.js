@@ -164,39 +164,3 @@ $(document).ready(function( $ ) {
     });
 });
 
-setTimeout(function(){
-    $('#google-reviews .review-item-wrapper').slick({
-        infinite: false,
-        mobileFirst: false,
-        variableWidth:false,
-        responsive: [
-            {
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 3,
-                    variableWidth:false,
-                }
-            },
-            {
-                breakpoint: 768,
-                settings: {
-                    slidesToShow: 2,
-                    variableWidth:false,
-                }
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 1,
-                    variableWidth:false,
-                }
-            }
-        ],
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 3500,
-        prevArrow:'<i class="slider-prev fa fa-chevron-left">Previous</i>',
-        nextArrow:' <i class="slider-next fa fa-chevron-right">Next</i>',
-    });
-
-},1000);
