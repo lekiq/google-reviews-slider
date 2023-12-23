@@ -70,22 +70,13 @@
     color: #ffc400;
 }
 
-.slick-slide{
-    height: 320px!important;
-    margin: 0 4px;
-}
-
-.slick-slider{
-    width: 100%;
-}
-
 .review-item-wrapper{
     display: flex !important;
     justify-content: center;
     flex-wrap: nowrap;
 }
 
-i.slider-prev.fa.fa-chevron-left.slick-arrow {
+.left-arrow {
     position: absolute;
     top: calc(50% - 18px);
     z-index: 10;
@@ -94,17 +85,11 @@ i.slider-prev.fa.fa-chevron-left.slick-arrow {
     left: 10px;
 }
 
-i.slider-next.fa.fa-chevron-right.slick-arrow {
+.right-arrow {
     position: absolute;
     top: calc(50% - 18px);
     z-index: 10;
     background: white;
     padding: 10px;
     right: 10px;
-}
-
-.slick-track {
-    display: flex;
-    align-items: center;
-    gap: 10px;
 }
