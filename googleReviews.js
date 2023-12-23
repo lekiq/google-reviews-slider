@@ -72,7 +72,7 @@
         var renderReviews = function (reviews) {
             // reviews = sort_by_date(reviews);
             reviews = filter_minimum_rating(reviews);
-            var html = "<div class='glide__track' data-glide-el='track'><div class='review-item-wrapper glide__slides'>";
+            var html = "<div class='glide'><div class='glide__track' data-glide-el='track'><div class='review-item-wrapper glide__slides'>";
             var row_count = (plugin.settings.max_rows > 0) ? plugin.settings.max_rows - 1 : reviews.length - 1;
             // make sure the row_count is not greater than available records
             row_count = (row_count > reviews.length - 1) ? reviews.length - 1 : row_count;
@@ -85,7 +85,7 @@
             }
             ;
             $element.append(html);
-            html = html + "</div></div>";
+            html = html + "</div></div></div>";
         }
 
         function truncate(string) {
