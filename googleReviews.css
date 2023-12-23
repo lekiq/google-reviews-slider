@@ -84,13 +84,27 @@
 .slick-slider{
     width: 100%;
 }
-.slick-arrow{
-    display: flex;
-    align-items: center;
-}
 
 .review-item-wrapper{
     display: flex !important;
     justify-content: center;
     flex-wrap: nowrap;
+}
+
+i.slider-prev.fa.fa-chevron-left.slick-arrow {
+    position: absolute;
+    top: calc(50% - 18px);
+    z-index: 10;
+    background: white;
+    padding: 10px;
+    left: 10px;
+}
+
+i.slider-next.fa.fa-chevron-right.slick-arrow {
+    position: absolute;
+    top: calc(50% - 18px);
+    z-index: 10;
+    background: white;
+    padding: 10px;
+    right: 10px;
 }
