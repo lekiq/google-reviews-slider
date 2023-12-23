@@ -81,10 +81,10 @@
                 var date = convertTime(reviews[i].time);
                 date = date.split(' ');
                 date = date[1] + '.' + date[0] + '.' + date[2];
-                if (date.indexOf(',') > -1) {
+                // remove comma from date if exists
+                date = date.replace(/,/g, "");
                 html = html + "<div class='review-item glide__slide'><div class='review-meta'><span class='review-img'><img src='" + reviews[i].profile_photo_url + "'></span> <span class='review-author'>" + reviews[i].author_name + "</span><span class='review-date'>" + date + "</span></div>" + stars + "<p class='review-text'>" + truncate(reviews[i].text) + "</p></div>"
-            }
-            ;
+            };
             $element.append(html);
             html = html + "</div></div></div>";
         }
