@@ -36,7 +36,8 @@
             var map = new google.maps.Map(document.getElementById('map-plug'));
 
             var request = {
-                placeId: plugin.settings.placeId
+                placeId: plugin.settings.placeId,
+                language: 'de'
             };
 
             var service = new google.maps.places.PlacesService(map);
@@ -164,7 +165,6 @@
 $(document).ready(function( $ ) {
     $("#google-reviews").googlePlaces({
         placeId: 'ChIJidEIrxGobUcRweVFN_jGgtA',
-        language: 'de',
         render: ['reviews'],
         min_rating: 4,
         max_rows:7
