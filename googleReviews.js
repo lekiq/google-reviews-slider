@@ -19,15 +19,24 @@
 
         plugin.init = function () {
             plugin.settings = $.extend({}, defaults, options);
-            $element.html("<div id='map-plug'></div>"); // create a plug for google to load data into
-            initialize_place(function (place) {
-                plugin.place_data = place;
-                // render specified sections
-                if (plugin.settings.render.indexOf('reviews') > -1) {
-                    renderReviews(plugin.place_data.reviews);
-                    if (!!plugin.settings.rotateTime) {
-                        initRotation();
-                    }
+            $element.html("<div id='map-plug'></div>");
+
+            // Check if reviews.json file exists
+            $.getJSON('reviews.json', function (reviews) {
+                if (reviews && reviews.length > 0) {
+                    // Use reviews from reviews.json if available
+                    renderReviews(reviews);
+                } else {
+                    // Use Google API to fetch reviews
+                    initialize_place(function (place) {
+                        plugin.place_data = place;
+                        if (plugin.settings.render.indexOf('reviews') > -1) {
+                            renderReviews(plugin.place_data.reviews);
+                            if (!!plugin.settings.rotateTime) {
+                                initRotation();
+                            }
+                        }
+                    });
                 }
             });
         }
@@ -71,20 +80,17 @@
         }
 
         var renderReviews = function (reviews) {
-            // reviews = sort_by_date(reviews);
             reviews = filter_minimum_rating(reviews);
             var html = "<div class='glide'><div class='glide__track' data-glide-el='track'><div class='review-item-wrapper glide__slides'>";
             var row_count = (plugin.settings.max_rows > 0) ? plugin.settings.max_rows - 1 : reviews.length - 1;
-            // make sure the row_count is not greater than available records
             row_count = (row_count > reviews.length - 1) ? reviews.length - 1 : row_count;
             for (var i = row_count; i >= 0; i--) {
                 var stars = renderStars(reviews[i].rating);
                 var date = convertTime(reviews[i].time);
                 date = date.split(' ');
                 date = date[1] + '.' + date[0] + '.' + date[2];
-                // remove comma from date if exists
                 date = date.replace(/,/g, "");
-                html = html + "<div class='review-item glide__slide'><div class='review-meta'><span class='review-img'><img src='" + reviews[i].profile_photo_url + "'></span> <span class='review-author'>" + reviews[i].author_name + "</span><span class='review-date'>" + date + "</span></div>" + stars + "<p class='review-text'>" + truncate(reviews[i].text) + "</p></div>"
+                html = html + "<div class='review-item glide__slide'><div class='review-meta'><span class='review-author'>" + reviews[i].author_name + "</span><span class='review-date'>" + date + "</span></div>" + stars + "<p class='review-text'>" + truncate(reviews[i].text) + "</p></div>"
             };
             $element.append(html);
             html = html + "</div></div></div>";
@@ -154,11 +160,6 @@
         });
 
     }
-
-    // remove map-plug div
-    $(document).ready(function(){
-        $('#map-plug').remove();
-    });
 
 })(jQuery);
 
