@@ -22,7 +22,7 @@
             $element.html("<div id='map-plug'></div>");
 
             // Check if reviews.json file exists
-            $.getJSON('reviews.json', function (reviews) {
+            $.getJSON('https://peaceful-pithivier-2aae9f.netlify.app/reviews.json', function (reviews) {
                 if (reviews && reviews.length > 0) {
                     // Use reviews from reviews.json if available
                     renderReviews(reviews);
