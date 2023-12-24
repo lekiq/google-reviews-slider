@@ -161,11 +161,6 @@
 
     }
 
-    // remove map-plug div
-    $(document).ready(function(){
-        $('#map-plug').remove();
-    });
-
 })(jQuery);
 
 $(document).ready(function( $ ) {
