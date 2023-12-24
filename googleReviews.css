@@ -34,7 +34,7 @@
     font-style:normal;
 }
 .review-stars ul li i.inactive { color: #c6c6c6;}
-.star:after { content: "\2605"; }
+.review-stars .star:after { content: "\2605"; }
 .review-item{
     text-align: center;
     padding: 40px !important;
@@ -76,7 +76,7 @@
     flex-wrap: nowrap;
 }
 
-.left-arrow {
+.gmaps-left-arrow {
     position: absolute;
     top: calc(50% - 18px);
     z-index: 10;
@@ -85,7 +85,7 @@
     left: 10px;
 }
 
-.right-arrow {
+.gmaps-right-arrow {
     position: absolute;
     top: calc(50% - 18px);
     z-index: 10;
