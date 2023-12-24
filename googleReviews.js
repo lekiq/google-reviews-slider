@@ -164,6 +164,7 @@
 $(document).ready(function( $ ) {
     $("#google-reviews").googlePlaces({
         placeId: 'ChIJidEIrxGobUcRweVFN_jGgtA',
+        language: 'de',
         render: ['reviews'],
         min_rating: 4,
         max_rows:7
